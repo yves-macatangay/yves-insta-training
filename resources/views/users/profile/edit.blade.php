@@ -14,9 +14,9 @@
             <div class="row mb-3">
                 <div class="col-4">
                     @if($user->avatar)
-                        <img src="{{ asset('storage/avatars/'.$user->avatar) }}" alt="{{ $user->avatar }}" class="img-thumbnail rounded-circle d-block mx-auto profile-avatar">
+                        <img src="{{ $user->avatar }}" alt="{{ $user->avatar }}" class="img-thumbnail rounded-circle d-block mx-auto image-lg">
                     @else
-                        <i class="fa-solid fa-circle-user text-secondary d-block text-center profile-icon"></i>
+                        <i class="fa-solid fa-circle-user text-secondary d-block text-center icon-lg"></i>
                     @endif
                 </div>
 

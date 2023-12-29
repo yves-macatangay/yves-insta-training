@@ -45,30 +45,12 @@ class ProfileController extends Controller
         $u->introduction = $request->introduction;
 
         if($request->avatar){
-            if($u->avatar){
-                $this->deleteAvatar($u->avatar);
-            }
-            $u->avatar = $this->saveAvatar($request);
+            $u->avatar = 'data:image/'.$request->avatar->extension().';base64,'
+                    .base64_encode(file_get_contents($request->avatar));
         }
         $u->save();
         
         return redirect()->route('profile.show', Auth::user()->id);
-    }
-
-    private function deleteAvatar($avatar_name){
-        $file_path = self::LOCAL_STORAGE_FOLDER.$avatar_name;
-
-        if(Storage::disk('local')->exists($file_path)){
-            Storage::disk('local')->delete($avatar_path);
-        }
-    }
-
-    private function saveAvatar($request){
-        $avatar_name = time().".".$request->avatar->extension();
-
-        $request->avatar->storeAs(self::LOCAL_STORAGE_FOLDER, $avatar_name);
-
-        return $avatar_name;
     }
 
     public function followers($id){

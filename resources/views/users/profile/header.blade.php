@@ -2,7 +2,7 @@
     <div class="col-4">
         <button class="border-0 bg-transparent p-0 shadow-none" data-bs-toggle="modal" data-bs-target="#recent-comments">
             @if($user->avatar)
-                <img src="{{ asset('storage/avatars/'.$user->avatar) }}" alt="{{ $user->avatar }}" class="img-thumbnail rounded-circle d-block mx-auto image-lg">
+                <img src="{{ $user->avatar }}" alt="{{ $user->avatar }}" class="img-thumbnail rounded-circle d-block mx-auto image-lg">
             @else
                 <i class="fa-solid fa-circle-user text-secondary d-block text-center icon-lg"></i>
             @endif

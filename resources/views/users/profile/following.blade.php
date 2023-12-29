@@ -16,9 +16,9 @@
                         <div class="col-auto">
                             <a href="{{ route('profile.show', $following->followed->id) }}">
                                 @if($following->followed->avatar)
-                                    <img src="{{ asset('storage/avatars/'. $following->followed->avatar) }}" alt="{{ $following->followed->avatar }}" class="rounded-circle user-avatar">
+                                    <img src="{{ $following->followed->avatar }}" alt="{{ $following->followed->avatar }}" class="rounded-circle avatar-sm">
                                 @else
-                                    <i class="fa-solid fa-circle-user text-secondary user-icon"></i>
+                                    <i class="fa-solid fa-circle-user text-secondary icon-sm"></i>
                                 @endif
                             </a>
                         </div>
@@ -30,13 +30,13 @@
                         <div class="col-auto text-end">
                             @if($following->followed->id != Auth::user()->id)
                                 @if($following->followed->isFollowed())
-                                <form action="{{ route('follow.destroy', $user->id) }}" method="post" class="d-inline">
+                                <form action="{{ route('follow.destroy', $following->followed->id) }}" method="post" class="d-inline">
                                     @csrf 
                                     @method('DELETE')
                                     <button type="submit" class="border-0 bg-transparent p-0 text-secondary btn-sm">Following</button>
                                 </form>
                                 @else
-                                <form action="{{ route('follow.store', $user->id) }}" method="post" class="d-inline">
+                                <form action="{{ route('follow.store', $following->followed->id) }}" method="post" class="d-inline">
                                     @csrf 
                                     <button type="submit" class="border-0 bg-transparent p-0 text-primary btn-sm">Follow</button>
                                 </form>

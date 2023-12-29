@@ -1,6 +1,20 @@
 .icon-sm {
     font-size:2rem;
 }
+.avatar-sm{
+    height:2rem;
+    width:2rem;
+    object-fit:cover;
+}
+
+.icon-md {
+    font-size:3.5rem;
+}
+.avatar-md{
+    height:3.5rem;
+    width:3.5rem;
+    object-fit:cover;
+}
 
 .image-lg{
     height:9rem;

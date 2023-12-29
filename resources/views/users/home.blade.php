@@ -29,8 +29,24 @@
             </div>
         @endforelse
     </div>
-    <div class="col-4 bg-secondary">
-        PROFILE OVERVIEW 
+    <div class="col-4">
+         <!-- Profile Overview -->
+        <div class="row align-items-center mb-5 bg-white shadow-sm rounded-3 py-3">
+            <div class="col-auto">
+                <a href="{{ route('profile.show', Auth::user()->id) }}">
+                    @if(Auth::user()->avatar)
+                        <img src="{{ Auth::user()->avatar }}" alt="" class="rounded-circle avatar-md">
+                    @else
+                        <i class="fa-solid fa-circle-user text-secondary icon-md"></i>
+                    @endif
+                </a>
+            </div>
+
+            <div class="col ps-0">
+                <a href="{{ route('profile.show', Auth::user()->id) }}" class="text-decoration-none text-dark fw-bold small">{{ Auth::user()->name }}</a>
+                <p class="text-muted small">{{ Auth::user()->email }}</p>
+            </div>
+        </div>
 
 
         SUGGESTIONS

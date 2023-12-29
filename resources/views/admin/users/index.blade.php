@@ -24,7 +24,7 @@
         <tr>
             <td>
                 @if($user->avatar)
-                    <img src="{{ asset('storage/avatars/'.$user->avatar) }}" alt="" class="rounded-circle d-block mx-auto admin-users-avatar">
+                    <img src="{{ $user->avatar }}" alt="" class="rounded-circle d-block mx-auto admin-users-avatar">
                 @else
                     <i class="fa-solid fa-circle-user d-block text-center admin-users-icon"></i>
                 @endif

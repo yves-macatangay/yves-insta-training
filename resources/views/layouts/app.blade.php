@@ -55,7 +55,7 @@
                         @else
                             {{-- HOME --}}
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('index')}}" class="nav-link">
                                     <i class="fa-solid fa-house text-dark icon-sm"></i>
                                 </a>
                             </li>
@@ -71,7 +71,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link btn shadow-none" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if(Auth::user()->avatar)
-                                    <img src="#" alt="{{ Auth::user()->name}}" class="rounded-circle avatar-sm">
+                                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name}}" class="rounded-circle avatar-sm">
                                     @else
                                     <i class="fa-solid fa-circle-user text-dark icon-sm"></i>
                                     @endif
@@ -79,7 +79,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     {{-- PROFILE --}}
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{ route('profile.show', Auth::user()->id)}}" class="dropdown-item">
                                         <i class="fa-solid fa-circle-user"></i> Profile
                                     </a>
 
